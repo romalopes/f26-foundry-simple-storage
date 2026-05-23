@@ -22,7 +22,7 @@ code .
 Some useful terminal basics before we begin:
 
 ```bash
-touch randomFile.txt  ### create a file
+touch randomFile.txt   ### create a file
 rm randomFile.txt     ### delete a file
 ```
 

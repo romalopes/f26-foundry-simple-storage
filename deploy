@@ -1,0 +1,1 @@
+forge create SimpleStorage --rpc-url ${ALCHEMY_SEPOLIA_RPC_URL} --private-key ${BRAVE_METAMASK_PRIVATE_KEY_1}

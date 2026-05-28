@@ -446,10 +446,19 @@ forge create SimpleStorage \
 
 > ⚠️ Passing private keys directly via `--private-key` is convenient for local testing but **never do this with real keys**. The next lesson covers private key safety — arguably the most important topic in this course.
 
-````md
-# Deploying Smart Contracts Locally with Forge
+---
 
-## Introduction
+```
+
+```
+
+---
+
+# ----------------------------
+
+### Deploying Smart Contracts Locally with Forge
+
+#### Introduction
 
 `forge create` is the Foundry command used to deploy smart contracts.
 
@@ -459,7 +468,6 @@ To see all available options:
 forge --help
 forge create --help
 ```
-````
 
 Official documentation:
 
@@ -467,7 +475,7 @@ Official documentation:
 
 ---
 
-# Requirements for Deployment
+### Requirements for Deployment
 
 When deploying a smart contract, Forge needs two things:
 
@@ -476,7 +484,7 @@ When deploying a smart contract, Forge needs two things:
 
 ---
 
-# Deploying with Anvil (Recommended)
+### Deploying with Anvil (Recommended)
 
 Anvil is Foundry’s local Ethereum blockchain node.
 
@@ -498,7 +506,7 @@ http://127.0.0.1:8545
 
 ---
 
-# Deploy to Anvil
+### Deploy to Anvil
 
 Open a second terminal and run:
 
@@ -524,7 +532,7 @@ Block Time: Mon, 15 Apr 2024 11:50:55 +0000
 
 ---
 
-# Explicit Deployment Command
+### Explicit Deployment Command
 
 Instead of interactive mode:
 
@@ -541,9 +549,9 @@ This explicitly specifies:
 
 ---
 
-# Important Concepts
+### Important Concepts
 
-## RPC URL
+#### RPC URL
 
 RPC endpoints connect applications to a blockchain.
 
@@ -557,7 +565,7 @@ Examples:
 
 ---
 
-# Private Key Safety
+### Private Key Safety
 
 ⚠️ Extremely Important
 
@@ -583,7 +591,7 @@ For production deployments, use:
 
 ---
 
-# Useful Forge Deployment Flags
+### Useful Forge Deployment Flags
 
 | Flag            | Purpose                 |
 | --------------- | ----------------------- |
@@ -595,27 +603,27 @@ For production deployments, use:
 
 ---
 
-# Typical Local Development Workflow
+### Typical Local Development Workflow
 
-## Start Local Blockchain
+#### Start Local Blockchain
 
 ```bash
 anvil
 ```
 
-## Build Contracts
+#### Build Contracts
 
 ```bash
 forge build
 ```
 
-## Run Tests
+#### Run Tests
 
 ```bash
 forge test
 ```
 
-## Deploy Contract
+#### Deploy Contract
 
 ```bash
 forge create SimpleStorage --interactive
@@ -623,7 +631,7 @@ forge create SimpleStorage --interactive
 
 ---
 
-# Recommended Development Stack
+### Recommended Development Stack
 
 | Tool      | Purpose                     |
 | --------- | --------------------------- |
@@ -635,7 +643,7 @@ forge create SimpleStorage --interactive
 
 ---
 
-# Key Takeaways
+### Key Takeaways
 
 - `forge create` deploys smart contracts
 - Deployments require:
@@ -659,11 +667,11 @@ forge create SimpleStorage --interactive
 
 ---
 
-# ----------------------------
+### ----------------------------
 
-# Private Key Safety
+### Private Key Safety
 
-## Introduction
+#### Introduction
 
 Private key security is one of the most important aspects of blockchain development.
 
@@ -677,12 +685,12 @@ Anyone with access to your private key has full control over your funds.
 
 ---
 
-## The Risk
+#### The Risk
 
 Having a private key in plain text is extremely dangerous. Even worse — it may persist in your shell history without you realising:
 
 ```bash
-# Hit ↑ after deploying and you'll see your key exposed like this:
+### Hit ↑ after deploying and you'll see your key exposed like this:
 forge create SimpleStorage --rpc-url http://127.0.0.1:8545 --private-key 0xac0974bec...
 ```
 
@@ -696,7 +704,7 @@ history -c
 
 ---
 
-# Never Expose Real Private Keys
+### Never Expose Real Private Keys
 
 ⚠️ Keeping private keys in plain text is extremely dangerous.
 
@@ -715,7 +723,7 @@ These keys should NEVER be used on:
 
 ---
 
-## Real-World Consequences
+#### Real-World Consequences
 
 Exposed private keys are one of the leading causes of catastrophic losses in crypto:
 
@@ -735,7 +743,7 @@ Millions — sometimes billions — have been lost because of weak operational s
 
 ---
 
-## Your Safety Promise
+#### Your Safety Promise
 
 Create a file called `Promise.md` in your project and write the following:
 
@@ -751,9 +759,9 @@ Consider sharing this publicly and tagging [@PatrickAlphaC](https://twitter.com/
 
 ---
 
-# Best Practices for Private Key Safety
+### Best Practices for Private Key Safety
 
-## Never:
+#### Never:
 
 - commit private keys to GitHub
 - share keys publicly
@@ -763,7 +771,7 @@ Consider sharing this publicly and tagging [@PatrickAlphaC](https://twitter.com/
 
 ---
 
-# Safer Alternatives
+### Safer Alternatives
 
 Use:
 
@@ -775,7 +783,7 @@ Use:
 
 ---
 
-# Future Improvements
+### Future Improvements
 
 In future lessons, safer workflows include:
 
@@ -787,7 +795,7 @@ In future lessons, safer workflows include:
 
 ---
 
-# Important Takeaways
+### Important Takeaways
 
 - Private keys control your crypto assets
 - Plain text keys are extremely dangerous
@@ -797,14 +805,14 @@ In future lessons, safer workflows include:
 
 ---
 
-## What's Next
+#### What's Next
 
 Upcoming lessons will cover:
 
 - Getting free RPC URLs via **Alchemy** for any blockchain
 - Safer methodologies for handling private keys in Foundry
 
-# References
+### References
 
 - [https://book.getfoundry.sh/](https://book.getfoundry.sh/)
 - [https://book.getfoundry.sh/reference/forge/forge-create](https://book.getfoundry.sh/reference/forge/forge-create)
@@ -818,11 +826,11 @@ Upcoming lessons will cover:
 
 ---
 
-# ----------------------------
+### ----------------------------
 
-# Deploying Smart Contracts Locally Using Foundry Scripts
+### Deploying Smart Contracts Locally Using Foundry Scripts
 
-## Introduction
+#### Introduction
 
 Deploying smart contracts via scripts provides:
 
@@ -837,7 +845,7 @@ One major advantage of Foundry is that deployment scripts are also written in So
 
 ---
 
-# Foundry Script Conventions
+### Foundry Script Conventions
 
 Scripts are stored inside the:
 
@@ -852,7 +860,7 @@ Naming conventions:
 - Scripts → `.s.sol`
 - Tests → `.t.sol`
 
-## Creating the Script
+#### Creating the Script
 
 Create `script/DeploySimpleStorage.s.sol` — the `.s.sol` suffix is the naming convention for Foundry scripts (tests use `.t.sol`).
 
@@ -866,7 +874,7 @@ script/DeploySimpleStorage.s.sol
 
 ---
 
-# Basic Script Structure
+### Basic Script Structure
 
 Create:
 
@@ -888,7 +896,7 @@ contract DeploySimpleStorage {
 
 ---
 
-# Importing Foundry Script Utilities
+### Importing Foundry Script Utilities
 
 To use Foundry scripting functionality:
 
@@ -912,7 +920,7 @@ contract DeploySimpleStorage is Script {
 
 ---
 
-# Forge Standard Library (`forge-std`)
+### Forge Standard Library (`forge-std`)
 
 `forge-std` (Forge Standard Library) is a collection of helper contracts used for:
 
@@ -927,7 +935,7 @@ Reference:
 
 ---
 
-# The `run()` Function
+### The `run()` Function
 
 Every Foundry script uses a main function called:
 
@@ -964,7 +972,7 @@ contract DeploySimpleStorage is Script {
 }
 ```
 
-### Key components
+##### Key components
 
 | Element               | Purpose                                                        |
 | --------------------- | -------------------------------------------------------------- |
@@ -980,7 +988,7 @@ For Foundry scripting best practices see the [official docs](https://book.getfou
 
 ---
 
-# Understanding `vm`
+### Understanding `vm`
 
 `vm` is a Foundry cheatcode interface.
 
@@ -995,9 +1003,9 @@ The `vm` keyword only works inside Foundry.
 
 ---
 
-# `vm.startBroadcast()` and `vm.stopBroadcast()`
+### `vm.startBroadcast()` and `vm.stopBroadcast()`
 
-## Start Broadcasting
+#### Start Broadcasting
 
 ```solidity
 vm.startBroadcast();
@@ -1007,7 +1015,7 @@ Marks the beginning of transactions that should be sent to the blockchain RPC.
 
 ---
 
-## Stop Broadcasting
+#### Stop Broadcasting
 
 ```solidity
 vm.stopBroadcast();
@@ -1017,7 +1025,7 @@ Marks the end of transactions that should be broadcasted.
 
 ---
 
-# Deploying the Contract
+### Deploying the Contract
 
 Inside the broadcast block:
 
@@ -1029,9 +1037,9 @@ The `new` keyword deploys a new smart contract instance.
 
 ---
 
-# Running the Script
+### Running the Script
 
-### Without an RPC URL (dry run)
+##### Without an RPC URL (dry run)
 
 Run:
 
@@ -1057,7 +1065,7 @@ Foundry automatically launches a temporary Anvil instance, runs the script, then
 
 ---
 
-# Important Behavior Without RPC URL
+### Important Behavior Without RPC URL
 
 If no RPC URL is provided:
 
@@ -1075,7 +1083,7 @@ No persistent blockchain deployment occurs.
 
 ---
 
-# Running Against a Local Anvil Node
+### Running Against a Local Anvil Node
 
 Start Anvil:
 
@@ -1101,7 +1109,7 @@ This runs a **simulation** — no transactions are actually broadcast. A `broadc
 
 ---
 
-# Simulation vs Real Deployment
+### Simulation vs Real Deployment
 
 ⚠️ Important:
 
@@ -1114,7 +1122,7 @@ This means:
 
 ---
 
-# Broadcasting Transactions - With broadcast (actual deployment)
+### Broadcasting Transactions - With broadcast (actual deployment)
 
 To actually deploy the contract:
 
@@ -1136,7 +1144,7 @@ forge script script/DeploySimpleStorage.s.sol \
 
 After a successful deployment, the Anvil terminal confirms:
 
-```
+```bash
 Transaction: 0x73eb9fb4...
 Contract created: 0x5fbdb231...
 Gas used: 357088
@@ -1146,13 +1154,12 @@ Block Hash: 0x8ea564f1...
 Block Time: "Tue, 16 Apr 2024 13:39:51 +0000"
 ```
 
-```
 Script ran successfully.
 
 == Return ==
 0: contract SimpleStorage 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0
 
-## Setting up 1 EVM.
+#### Setting up 1 EVM.
 
 ==========================
 
@@ -1166,7 +1173,9 @@ Estimated amount required: 0.001272545893286136 ETH
 
 ==========================
 
-##### anvil-hardhat
+####### anvil-hardhat
+
+```bash
 ✅  [Success] Hash: 0x6a5a13b2b3c62568d1bc9993e3e18f826daa7eaa6f063d188c4d04cb2d01cc1d
 Contract: SimpleStorage
 Contract Address: 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0
@@ -1174,6 +1183,7 @@ Block: 3
 Paid: 0.000430530599725941 ETH (556413 gas * 0.773760857 gwei)
 
 ✅ Sequence #1 on anvil-hardhat | Total Paid: 0.000430530599725941 ETH (556413 gas * avg 0.773760857 gwei)
+```
 
 ==========================
 
@@ -1183,17 +1193,15 @@ Transactions saved to: /Users/romalopes/Documents/studies/crypto/foundry-f26/f26
 
 Sensitive values saved to: /Users/romalopes/Documents/studies/crypto/foundry-f26/f26-foundry-simple-storage/cache/DeploySimpleStorage.s.sol/31337/run-latest.json
 
-```
-
 Now the contract is truly deployed to Anvil.
 
 ---
 
-# Anvil Deployment Output
+##### Anvil Deployment Output
 
 Inside the Anvil terminal:
 
-```text
+```bash
 Transaction: 0x73eb9fb4ef7b159e03c50d669c42e2ec4eeaa9358bea0a710cb07168e5192570
 Contract created: 0x5fbdb2315678afecb367f032d93f642f64180aa3
 Gas used: 357088
@@ -1204,7 +1212,7 @@ Block Hash: 0x8ea564f146e04bb36fc27f0b491223a023b5882d2fcfce3ff85e0dd152e611e4
 
 ---
 
-# Broadcast Folder
+##### Broadcast Folder
 
 After running scripts, Foundry creates:
 
@@ -1226,7 +1234,7 @@ Useful for:
 
 ---
 
-## Summary: Three Modes
+#### Summary: Three Modes
 
 | Command                                  | RPC URL  | `--broadcast` | Result                              |
 | ---------------------------------------- | -------- | ------------- | ----------------------------------- |
@@ -1236,9 +1244,9 @@ Useful for:
 
 ---
 
-# Important Notes
+### Important Notes
 
-## Solidity Version Compatibility
+#### Solidity Version Compatibility
 
 Ensure both files use the same Solidity version:
 
@@ -1250,22 +1258,22 @@ Otherwise compilation errors may occur.
 
 ---
 
-# Useful Commands
+### Useful Commands
 
-## Run Script Locally
+#### Run Script Locally
 
 ```bash
 forge script script/DeploySimpleStorage.s.sol
 ```
 
-## Run Simulation Against Anvil
+#### Run Simulation Against Anvil
 
 ```bash
 forge script script/DeploySimpleStorage.s.sol \
     --rpc-url http://127.0.0.1:8545
 ```
 
-## Broadcast Real Deployment
+#### Broadcast Real Deployment
 
 ```bash
 forge script script/DeploySimpleStorage.s.sol \
@@ -1276,7 +1284,7 @@ forge script script/DeploySimpleStorage.s.sol \
 
 ---
 
-# Key Takeaways
+### Key Takeaways
 
 - Foundry deployment scripts are written in Solidity
 - Scripts use the `.s.sol` naming convention
@@ -1289,7 +1297,7 @@ forge script script/DeploySimpleStorage.s.sol \
 
 ---
 
-# References
+### References
 
 - [https://book.getfoundry.sh/](https://book.getfoundry.sh/)
 - [https://book.getfoundry.sh/reference/forge/forge-script](https://book.getfoundry.sh/reference/forge/forge-script)
@@ -1308,11 +1316,11 @@ forge script script/DeploySimpleStorage.s.sol \
 
 ---
 
-# ----------------------------
+### ----------------------------
 
-# What is a Blockchain Transaction?
+### What is a Blockchain Transaction?
 
-## Introduction
+#### Introduction
 
 A blockchain transaction is a data structure that records an action performed on a blockchain.
 
@@ -1327,7 +1335,7 @@ Every state-changing action on Ethereum is executed through a transaction.
 
 ---
 
-# Foundry Transaction Records - The `broadcast` Folder
+### Foundry Transaction Records - The `broadcast` Folder
 
 Foundry saves all blockchain interactions in the `broadcast/` folder, organized by `chainId`.
 
@@ -1357,7 +1365,7 @@ broadcast/
 
 ---
 
-# `dry-run/` Folder
+### `dry-run/` Folder
 
 The `dry-run/` folder contains simulated transactions interactions made without a running blockchain (e.g. when `--rpc-url` was not specified).
 
@@ -1376,7 +1384,7 @@ Foundry temporarily creates an Anvil instance, simulates the transactions, and s
 
 ---
 
-# Chain ID
+### Chain ID
 
 Each blockchain network has a unique identifier called a:
 
@@ -1400,7 +1408,7 @@ Chain IDs:
 
 ---
 
-# Transaction JSON Example
+### Transaction JSON Example
 
 Open `broadcast/run-latest.json` to inspect the last deployment. It contains `transactionType`, `contractName`, `contractAddress`, and the raw transaction data:
 
@@ -1424,7 +1432,7 @@ Inside `run-latest.json`:
 
 ---
 
-# Transaction Fields Explained
+### Transaction Fields Explained
 
 | Field        | Description                                                                                                             |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------- |
@@ -1437,7 +1445,7 @@ Inside `run-latest.json`:
 | `accessList` | Optional list of addresses and storage keys the transaction will access, used to optimize gas costs                     |
 | `v, r, s`    | Components of the cryptographic signature — prove the transaction was authorized by the sender's private key            |
 
-## `from`
+#### `from`
 
 ```json id="68ns6y"
 "from": "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266"
@@ -1452,7 +1460,7 @@ This is the account that:
 
 ---
 
-# `to`
+### `to`
 
 ```json id="dcmnru"
 "to": null
@@ -1469,7 +1477,7 @@ because the contract does not yet exist.
 
 ---
 
-# `gas`
+### `gas`
 
 ```json id="aax4l6"
 "gas": "0x714e1"
@@ -1487,7 +1495,7 @@ cast --to-base 0x714e1 dec
 
 ---
 
-# `value`
+### `value`
 
 ```json id="y72rv5"
 "value": "0x0"
@@ -1503,7 +1511,7 @@ But you can deploy contracts with initial ETH funding.
 
 ---
 
-# `input`
+### `input`
 
 ```json id="9j5v1s"
 "input": "0x608060..."
@@ -1518,7 +1526,7 @@ For deployments this contains:
 
 ---
 
-# `nonce`
+### `nonce`
 
 ```json id="3nkg2v"
 "nonce": "0x0"
@@ -1538,7 +1546,7 @@ Purpose:
 
 ---
 
-# `accessList`
+### `accessList`
 
 ```json id="j70q8h"
 "accessList": null
@@ -1554,7 +1562,7 @@ Access lists:
 
 ---
 
-# `type`
+### `type`
 
 ```json id="i6llhs"
 "type": null
@@ -1572,7 +1580,7 @@ Ignore for now during early learning.
 
 ---
 
-# Transaction Signatures (`v`, `r`, `s`)
+### Transaction Signatures (`v`, `r`, `s`)
 
 Transactions also contain cryptographic signature values:
 
@@ -1590,7 +1598,7 @@ The signature is generated using the sender’s private key.
 
 ---
 
-# Important Concept
+### Important Concept
 
 ⚠️ Every blockchain state change requires a transaction.
 
@@ -1609,7 +1617,7 @@ input/data field
 
 ---
 
-# Foundry `cast` Converting hex values with `cast`
+### Foundry `cast` Converting hex values with `cast`
 
 `cast` is a Foundry CLI tool for interacting with Ethereum data.
 
@@ -1630,15 +1638,15 @@ Useful for:
 
 ---
 
-# Useful Commands
+### Useful Commands
 
-## Convert Hex to Decimal
+#### Convert Hex to Decimal
 
 ```bash id="x9w0rb"
 cast --to-base 0x714e1 dec
 ```
 
-## View Foundry Script Output
+#### View Foundry Script Output
 
 ```bash id="v47j4q"
 cat broadcast/DeploySimpleStorage.s.sol/31337/run-latest.json
@@ -1646,7 +1654,7 @@ cat broadcast/DeploySimpleStorage.s.sol/31337/run-latest.json
 
 ---
 
-# Key Takeaways
+### Key Takeaways
 
 - Transactions record blockchain actions
 - Every state change requires a transaction
@@ -1657,9 +1665,9 @@ cat broadcast/DeploySimpleStorage.s.sol/31337/run-latest.json
 - `input/data` contains contract bytecode or calldata
 - Transactions are cryptographically signed using private keys
 
-## Private keys are used to sign every transaction. The `v`, `r`, `s` signature fields are what the network uses to verify authenticity without ever exposing the key itself.
+#### Private keys are used to sign every transaction. The `v`, `r`, `s` signature fields are what the network uses to verify authenticity without ever exposing the key itself.
 
-# References
+### References
 
 - [https://book.getfoundry.sh/](https://book.getfoundry.sh/)
 - [https://book.getfoundry.sh/reference/cast/cast](https://book.getfoundry.sh/reference/cast/cast)
@@ -1674,18 +1682,18 @@ cat broadcast/DeploySimpleStorage.s.sol/31337/run-latest.json
 
 ---
 
-# ----------------------------
+### ----------------------------
 
-# Private Key Safety pt.2 — `.env` and Keystores
+### Private Key Safety pt.2 — `.env` and Keystores
 
-## Introduction
+#### Introduction
 
 Using private keys directly in terminal commands is unsafe.
 
 Example of an insecure deployment command:
 
 ```bash id="h0w4tq"
-# ❌ Never do this with real keys
+### ❌ Never do this with real keys
 forge script script/DeploySimpleStorage.s.sol \
   --rpc-url http://127.0.0.1:8545 \
   --broadcast \
@@ -1701,7 +1709,7 @@ Problems:
 
 ---
 
-# Using `.env` Files for Development
+### Using `.env` Files for Development
 
 For local development, environment variables provide a cleaner workflow.
 
@@ -1712,20 +1720,20 @@ For local development, environment variables provide a cleaner workflow.
 
 ---
 
-## Using a `.env` File
+#### Using a `.env` File
 
-### 1. Create `.env` in the project root
+##### 1. Create `.env` in the project root
 
 ```bash
 PRIVATE_KEY=0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
 RPC_URL=http://127.0.0.1:8545
 ```
 
-### 2. Add `.env` to `.gitignore`
+##### 2. Add `.env` to `.gitignore`
 
 Make sure `.env` is listed in `.gitignore` so it is never committed to version control.
 
-### 3. Load the variables into your shell
+##### 3. Load the variables into your shell
 
 ```bash
 source .env
@@ -1738,7 +1746,7 @@ echo $PRIVATE_KEY
 echo $RPC_URL
 ```
 
-### 4. Use the variables in your command
+##### 4. Use the variables in your command
 
 ```bash
 forge script script/DeploySimpleStorage.s.sol \
@@ -1753,7 +1761,7 @@ This keeps keys out of plain sight in the command line and makes repeated comman
 
 ---
 
-# Ignore `.env` in Git
+### Ignore `.env` in Git
 
 Ensure `.env` is included in:
 
@@ -1771,7 +1779,7 @@ This prevents accidentally pushing secrets to GitHub.
 
 ---
 
-# Load Environment Variables
+### Load Environment Variables
 
 Run:
 
@@ -1783,7 +1791,7 @@ This loads the variables into the current shell session.
 
 ---
 
-# Verify Variables
+### Verify Variables
 
 Check if variables were loaded correctly:
 
@@ -1794,7 +1802,7 @@ echo $RPC_URL
 
 ---
 
-# Using Variables in Forge Commands
+### Using Variables in Forge Commands
 
 Replace hardcoded values with environment variables:
 
@@ -1814,7 +1822,7 @@ Benefits:
 
 ---
 
-# Important Security Warning
+### Important Security Warning
 
 ⚠️ `.env` files still store private keys in plain text.
 
@@ -1832,7 +1840,7 @@ This is NOT secure enough for:
 
 ---
 
-# Production-Grade Solution: Keystore Files
+### Production-Grade Solution: Keystore Files
 
 Foundry supports encrypted keystore files.
 
@@ -1863,9 +1871,9 @@ Run `forge script --help` for full keystore options, or see the [Cyfrin keystore
 
 ---
 
-# Recommended Security Practices
+### Recommended Security Practices
 
-## For Development
+#### For Development
 
 ✅ Acceptable:
 
@@ -1880,7 +1888,7 @@ As long as:
 
 ---
 
-# For Production
+### For Production
 
 ✅ Recommended:
 
@@ -1897,7 +1905,7 @@ As long as:
 
 ---
 
-## The Rules
+#### The Rules
 
 | Scenario                     | Recommended approach                           |
 | ---------------------------- | ---------------------------------------------- |
@@ -1906,7 +1914,7 @@ As long as:
 
 ---
 
-## The .env Pledge
+#### The .env Pledge
 
 Take the [`.env` Pledge](https://updraft.cyfrin.io/courses/foundry/foundry-simple-storage/envpledge.cyfrin.io) — a commitment to safe key practices that started on GitHub and is now permanently on-chain as a soul-bound NFT. Mint yours to show your commitment to secure development.
 
@@ -1926,22 +1934,22 @@ It later evolved into an on-chain pledge with soul-bound NFTs.
 
 ---
 
-# Useful Commands
+### Useful Commands
 
-## Load `.env`
+#### Load `.env`
 
 ```bash id="yxr7kt"
 source .env
 ```
 
-## Verify Variables
+#### Verify Variables
 
 ```bash id="y2t5ee"
 echo $PRIVATE_KEY
 echo $RPC_URL
 ```
 
-## Deploy Using Environment Variables
+#### Deploy Using Environment Variables
 
 ```bash id="jlwm6x"
 forge script script/DeploySimpleStorage.s.sol \
@@ -1950,7 +1958,7 @@ forge script script/DeploySimpleStorage.s.sol \
     --private-key $PRIVATE_KEY
 ```
 
-## Use Keystore
+#### Use Keystore
 
 ```bash id="6ij5zh"
 forge script --keystore <PATH>
@@ -1958,7 +1966,7 @@ forge script --keystore <PATH>
 
 ---
 
-# Key Takeaways
+### Key Takeaways
 
 - Never expose private keys in terminal commands
 - `.env` files are acceptable only for development
@@ -1975,11 +1983,11 @@ forge script --keystore <PATH>
 
 ---
 
-# ----------------------------
+### ----------------------------
 
-# Never Use a `.env` File for Private Keys — Encrypt Your Keys Instead
+### Never Use a `.env` File for Private Keys — Encrypt Your Keys Instead
 
-## Introduction
+#### Introduction
 
 Storing private keys inside `.env` files is no longer considered a secure best practice. The secure alternative is to encrypt your key using **ERC-2335** via Foundry's `cast wallet import`.
 
@@ -1994,7 +2002,7 @@ Even though `.env` files are commonly used in development, they still:
 
 ---
 
-# Recommended Solution: Encrypted Keystores (ERC-2335)
+### Recommended Solution: Encrypted Keystores (ERC-2335)
 
 Foundry supports encrypted wallet storage using:
 
@@ -2016,7 +2024,7 @@ This is significantly safer than:
 
 ---
 
-# Importing a Wallet Securely
+### Importing a Wallet Securely
 
 Example private key (Anvil test key only):
 
@@ -2041,7 +2049,7 @@ This only needs to be done once. The key is stored encrypted — it is never ava
 
 ---
 
-# What Happens Internally?
+### What Happens Internally?
 
 Foundry:
 
@@ -2058,7 +2066,7 @@ After that:
 
 ---
 
-# Old Unsafe Deployment Method
+### Old Unsafe Deployment Method
 
 ❌ Avoid:
 
@@ -2077,7 +2085,7 @@ Problems:
 
 ---
 
-# Secure Deployment Method
+### Secure Deployment Method
 
 ✅ Recommended:
 
@@ -2101,7 +2109,7 @@ Without the password:
 
 ---
 
-# Listing Stored Wallets
+### Listing Stored Wallets
 
 View configured wallets:
 
@@ -2116,7 +2124,7 @@ Useful for:
 
 ---
 
-# Clear Terminal History
+### Clear Terminal History
 
 After handling secrets, clear terminal history:
 
@@ -2128,9 +2136,9 @@ This helps reduce accidental exposure of sensitive data.
 
 ---
 
-# Why Keystores Are Better
+### Why Keystores Are Better
 
-## `.env` Files
+#### `.env` Files
 
 ❌ Problems:
 
@@ -2141,7 +2149,7 @@ This helps reduce accidental exposure of sensitive data.
 
 ---
 
-# ERC-2335 Keystores
+### ERC-2335 Keystores
 
 ✅ Benefits:
 
@@ -2153,9 +2161,9 @@ This helps reduce accidental exposure of sensitive data.
 
 ---
 
-# Security Best Practices
+### Security Best Practices
 
-## Never:
+#### Never:
 
 - store production keys in `.env`
 - expose private keys in terminal commands
@@ -2164,7 +2172,7 @@ This helps reduce accidental exposure of sensitive data.
 
 ---
 
-# Recommended:
+### Recommended:
 
 - encrypted keystores
 - password-protected wallets
@@ -2174,9 +2182,9 @@ This helps reduce accidental exposure of sensitive data.
 
 ---
 
-# Useful Commands
+### Useful Commands
 
-## Import Wallet
+#### Import Wallet
 
 ```bash id="lfiv79"
 cast wallet import myAccount --interactive
@@ -2184,13 +2192,13 @@ cast wallet import myAccount --interactive
 
 It will ask the private key and you can check after.
 
-## List Wallets
+#### List Wallets
 
 ```bash id="r5o9gi"
 cast wallet list
 ```
 
-## Deploy Using Encrypted Account
+#### Deploy Using Encrypted Account
 
 ```bash id="1l1c5u"
 forge script script/DeploySimpleStorage.s.sol \
@@ -2200,7 +2208,7 @@ forge script script/DeploySimpleStorage.s.sol \
     --sender YOUR_WALLET_ADDRESS
 ```
 
-## Clear Terminal History
+#### Clear Terminal History
 
 ```bash id="4sm3xn"
 history -c
@@ -2208,7 +2216,7 @@ history -c
 
 ---
 
-# Key Takeaways
+### Key Takeaways
 
 - `.env` files are not safe for real private keys
 - Foundry supports encrypted ERC-2335 keystores
@@ -2225,11 +2233,11 @@ history -c
 
 ---
 
-# ----------------------------
+### ----------------------------
 
-# Interacting with Smart Contracts Using Foundry Cast
+### Interacting with Smart Contracts Using Foundry Cast
 
-## Introduction
+#### Introduction
 
 After deploying a smart contract with Anvil and Foundry, we can interact with it directly from the command line using:
 
@@ -2250,7 +2258,7 @@ Useful for:
 
 ---
 
-# Interacting with a Deployed Contract
+### Interacting with a Deployed Contract
 
 Before interacting:
 
@@ -2268,7 +2276,7 @@ Example deployed contract:
 
 ---
 
-# Sending Transactions with `cast send`
+### Sending Transactions with `cast send`
 
 `cast send`:
 
@@ -2286,7 +2294,7 @@ cast send 0x5FbDB2315678afecb367f032d93F642f64180aa3 \
     --private-key $ANVIL_PRIVATE_KEY_1
 ```
 
-# Understanding the Command
+### Understanding the Command
 
 | Part                         | Description                                            |
 | ---------------------------- | ------------------------------------------------------ |
@@ -2299,7 +2307,7 @@ cast send 0x5FbDB2315678afecb367f032d93F642f64180aa3 \
 
 ---
 
-# Private Key
+### Private Key
 
 ```bash id="mzz5js"
 --private-key $PRIVATE_KEY
@@ -2319,7 +2327,7 @@ Used to:
 
 ---
 
-# Reading Blockchain Data with `cast call`
+### Reading Blockchain Data with `cast call`
 
 `cast call`:
 
@@ -2342,7 +2350,7 @@ Example output:
 
 ---
 
-# Understanding the Return Value
+### Understanding the Return Value
 
 The returned value is hexadecimal.
 
@@ -2364,7 +2372,7 @@ This confirms the stored value inside the contract.
 
 ---
 
-# Difference Between `send` and `call`
+### Difference Between `send` and `call`
 
 | Command     | Purpose    | Changes State | Requires Gas |
 | ----------- | ---------- | ------------- | ------------ |
@@ -2373,9 +2381,9 @@ This confirms the stored value inside the contract.
 
 ---
 
-# Common Workflow
+### Common Workflow
 
-## 1. Start Anvil
+#### 1. Start Anvil
 
 ```bash id="s7o0b9"
 anvil
@@ -2383,7 +2391,7 @@ anvil
 
 ---
 
-# 2. Deploy Contract
+### 2. Deploy Contract
 
 ```bash id="g2v08m"
 forge script script/DeploySimpleStorage.s.sol \
@@ -2393,7 +2401,7 @@ forge script script/DeploySimpleStorage.s.sol \
 
 ---
 
-# 3. Store a Value
+### 3. Store a Value
 
 ```bash id="8pn43i"
 cast send CONTRACT_ADDRESS \
@@ -2405,7 +2413,7 @@ cast send CONTRACT_ADDRESS \
 
 ---
 
-# 4. Read Stored Value
+### 4. Read Stored Value
 
 ```bash id="0nvkpq"
 cast call CONTRACT_ADDRESS "retrieve()"
@@ -2413,27 +2421,27 @@ cast call CONTRACT_ADDRESS "retrieve()"
 
 ---
 
-# Useful Cast Commands
+### Useful Cast Commands
 
-## General Help
+#### General Help
 
 ```bash id="gjdr8l"
 cast --help
 ```
 
-## Send Help
+#### Send Help
 
 ```bash id="sxtnlf"
 cast send --help
 ```
 
-## Call Help
+#### Call Help
 
 ```bash id="xxs3eh"
 cast call --help
 ```
 
-## Convert Hex to Decimal
+#### Convert Hex to Decimal
 
 ```bash id="wcd8mr"
 cast --to-base HEX_VALUE dec
@@ -2441,7 +2449,7 @@ cast --to-base HEX_VALUE dec
 
 ---
 
-# Key Takeaways
+### Key Takeaways
 
 - `cast` is Foundry’s blockchain interaction CLI tool
 - `cast send` modifies blockchain state
@@ -2459,11 +2467,11 @@ cast --to-base HEX_VALUE dec
 
 ---
 
-# ----------------------------
+### ----------------------------
 
-# Deploying Smart Contracts to Testnets with Foundry and Alchemy
+### Deploying Smart Contracts to Testnets with Foundry and Alchemy
 
-## Introduction
+#### Introduction
 
 After deploying locally with Anvil, the next step is deploying smart contracts to a public blockchain testnet such as:
 
@@ -2478,7 +2486,7 @@ To do this, we need:
 
 ---
 
-# RPC URLs and Node Providers
+### RPC URLs and Node Providers
 
 Public blockchains require an RPC endpoint to:
 
@@ -2507,7 +2515,7 @@ Popular providers:
 
 ---
 
-# Why Not Use MetaMask RPC Directly?
+### Why Not Use MetaMask RPC Directly?
 
 [MetaMask](https://metamask.io?utm_source=chatgpt.com) includes built-in RPC connections, but:
 
@@ -2518,7 +2526,7 @@ For Foundry deployments, we should use our own RPC endpoint.
 
 ---
 
-## Getting an RPC URL with Alchemy
+#### Getting an RPC URL with Alchemy
 
 [Alchemy](https://www.alchemy.com/) is a free NaaS platform that provides RPC endpoints for Ethereum and other chains.
 
@@ -2528,7 +2536,7 @@ For Foundry deployments, we should use our own RPC endpoint.
 
 This endpoint works exactly like the Ganache or Anvil local endpoints — just on a real network.
 
-## 1. Create an Alchemy Account
+#### 1. Create an Alchemy Account
 
 Open:
 
@@ -2538,7 +2546,7 @@ Sign up and create a new application.
 
 ---
 
-# 2. Configure the App
+### 2. Configure the App
 
 Example setup:
 
@@ -2558,7 +2566,7 @@ This endpoint works similarly to:
 
 ---
 
-## Updating `.env`
+#### Updating `.env`
 
 Replace the local RPC URL and private key with your Sepolia values:
 
@@ -2567,7 +2575,7 @@ Sepolia_RPC_URL=https://eth-sepolia.g.alchemy.com/v2/YOUR_API_KEY
 PRIVATE_KEY=your_metamask_private_key_here
 ```
 
-# Funding a Testnet Wallet
+### Funding a Testnet Wallet
 
 Local Anvil accounts do NOT exist on public testnets.
 
@@ -2584,7 +2592,7 @@ Useful faucets:
 
 ---
 
-# Exporting a Private Key
+### Exporting a Private Key
 
 ⚠️ Never share production private keys.
 
@@ -2603,7 +2611,7 @@ Inside MetaMask:
 
 ---
 
-# Configuring Environment Variables
+### Configuring Environment Variables
 
 Create:
 
@@ -2620,7 +2628,7 @@ PRIVATE_KEY=YOUR_PRIVATE_KEY
 
 ---
 
-# Load Environment Variables
+### Load Environment Variables
 
 ```bash id="q3x7f6"
 source .env
@@ -2628,7 +2636,7 @@ source .env
 
 ---
 
-# Deploying to Sepolia
+### Deploying to Sepolia
 
 Run:
 
@@ -2647,7 +2655,7 @@ This:
 
 ---
 
-# What `--broadcast` Does
+### What `--broadcast` Does
 
 Without:
 
@@ -2665,7 +2673,7 @@ With `--broadcast`:
 
 ---
 
-# Verifying the Deployment
+### Verifying the Deployment
 
 After deployment, Foundry outputs:
 
@@ -2689,7 +2697,7 @@ to inspect:
 
 ---
 
-# Monitoring Transactions in Alchemy
+### Monitoring Transactions in Alchemy
 
 Inside the [Alchemy Dashboard](https://dashboard.alchemy.com?utm_source=chatgpt.com) you can monitor:
 
@@ -2706,7 +2714,7 @@ Useful for:
 
 ---
 
-# Security Considerations
+### Security Considerations
 
 ⚠️ Important:
 
@@ -2722,9 +2730,9 @@ Safer alternatives:
 
 ---
 
-# Typical Deployment Workflow
+### Typical Deployment Workflow
 
-## 1. Start with Local Development
+#### 1. Start with Local Development
 
 ```bash id="q4h3sm"
 anvil
@@ -2732,7 +2740,7 @@ anvil
 
 ---
 
-# 2. Test Locally
+### 2. Test Locally
 
 ```bash id="g0j9a1"
 forge test
@@ -2740,7 +2748,7 @@ forge test
 
 ---
 
-# 3. Configure Public RPC
+### 3. Configure Public RPC
 
 ```bash id="w2v4ei"
 source .env
@@ -2748,7 +2756,7 @@ source .env
 
 ---
 
-# 4. Deploy to Sepolia
+### 4. Deploy to Sepolia
 
 ```bash id="q4d77g"
 forge script script/DeploySimpleStorage.s.sol \
@@ -2759,7 +2767,7 @@ forge script script/DeploySimpleStorage.s.sol \
 
 ---
 
-# 5. Verify on Etherscan
+### 5. Verify on Etherscan
 
 Search:
 
@@ -2772,7 +2780,7 @@ on:
 
 ---
 
-# Key Takeaways
+### Key Takeaways
 
 - Public deployments require RPC providers
 - Alchemy provides Ethereum RPC infrastructure
@@ -2783,7 +2791,7 @@ on:
 
 ---
 
-# References
+### References
 
 - [Foundry Book](https://book.getfoundry.sh/?utm_source=chatgpt.com)
 - [Foundry Forge Script Docs](https://book.getfoundry.sh/reference/forge/forge-script?utm_source=chatgpt.com)
@@ -2799,11 +2807,11 @@ on:
 
 ---
 
-# ----------------------------
+### ----------------------------
 
-# Verifying Smart Contracts on Etherscan
+### Verifying Smart Contracts on Etherscan
 
-## Introduction
+#### Introduction
 
 After deploying a smart contract to a public network like Sepolia, the contract initially appears on block explorers only as raw bytecode.
 
@@ -2828,7 +2836,7 @@ Verification:
 
 ---
 
-# What Happens Before Verification?
+### What Happens Before Verification?
 
 Without verification, Etherscan only shows:
 
@@ -2844,9 +2852,9 @@ Example issue:
 
 ---
 
-# Manual Verification Process
+### Manual Verification Process
 
-## 1. Open the Contract Page
+#### 1. Open the Contract Page
 
 Go to your deployed contract address on:
 
@@ -2860,7 +2868,7 @@ https://sepolia.etherscan.io/address/YOUR_CONTRACT_ADDRESS
 
 ---
 
-# 2. Open the Verification Page
+### 2. Open the Verification Page
 
 Inside the contract page:
 
@@ -2873,7 +2881,7 @@ Verify and Publish
 
 ---
 
-## Steps to Verify Manually
+#### Steps to Verify Manually
 
 1. Find your contract on [Sepolia Etherscan](https://sepolia.etherscan.io) and click the **Contract** tab
 2. Click **Verify and Publish**
@@ -2899,9 +2907,9 @@ Successfully generated Bytecode and ABI for Contract Address [0x...]
 
 ---
 
-# 3. Enter Verification Details
+### 3. Enter Verification Details
 
-## Contract Address
+#### Contract Address
 
 Usually auto-filled.
 
@@ -2911,7 +2919,7 @@ If not:
 
 ---
 
-# Compiler Type
+### Compiler Type
 
 Select:
 
@@ -2926,7 +2934,7 @@ because:
 
 ---
 
-# Compiler Version
+### Compiler Version
 
 Select the exact Solidity version used during deployment.
 
@@ -2940,7 +2948,7 @@ Example:
 
 ---
 
-# License Type
+### License Type
 
 Select the license used in the source code.
 
@@ -2958,7 +2966,7 @@ Matches:
 
 ---
 
-# 4. Paste the Solidity Source Code
+### 4. Paste the Solidity Source Code
 
 Paste the full Solidity contract.
 
@@ -2983,7 +2991,7 @@ contract SimpleStorage {
 
 ---
 
-# 5. Configure Optimization
+### 5. Configure Optimization
 
 If optimization was enabled during compilation:
 
@@ -2999,7 +3007,7 @@ Otherwise:
 
 ---
 
-# 6. Submit Verification
+### 6. Submit Verification
 
 Click:
 
@@ -3020,11 +3028,11 @@ This confirms:
 
 ---
 
-# What Verification Enables
+### What Verification Enables
 
 After verification, Etherscan unlocks:
 
-## Read Contract
+#### Read Contract
 
 Allows:
 
@@ -3036,7 +3044,7 @@ Without paying gas.
 
 ---
 
-# Write Contract
+### Write Contract
 
 Allows:
 
@@ -3051,7 +3059,7 @@ Requires:
 
 ---
 
-## After Verification
+#### After Verification
 
 Once verified, the contract page on Etherscan gains two new tabs:
 
@@ -3060,9 +3068,9 @@ Once verified, the contract page on Etherscan gains two new tabs:
 
 This is the manual approach. Future lessons will cover how to verify programmatically using Foundry, which supports multiple block explorers automatically.
 
-# Why Verification Matters
+### Why Verification Matters
 
-## Transparency
+#### Transparency
 
 Anyone can inspect:
 
@@ -3072,7 +3080,7 @@ Anyone can inspect:
 
 ---
 
-# Trust
+### Trust
 
 Users can verify:
 
@@ -3081,7 +3089,7 @@ Users can verify:
 
 ---
 
-# Better Developer Experience
+### Better Developer Experience
 
 Verification enables:
 
@@ -3092,9 +3100,9 @@ Verification enables:
 
 ---
 
-# Manual vs Programmatic Verification
+### Manual vs Programmatic Verification
 
-## Manual Verification
+#### Manual Verification
 
 Done through:
 
@@ -3108,7 +3116,7 @@ Good for:
 
 ---
 
-# Programmatic Verification
+### Programmatic Verification
 
 Can later be automated using Foundry:
 
@@ -3130,35 +3138,35 @@ Foundry supports:
 
 ---
 
-# Common Verification Errors
+### Common Verification Errors
 
-## Compiler Version Mismatch
+#### Compiler Version Mismatch
 
 The Solidity version must exactly match deployment.
 
 ---
 
-# Optimization Settings Mismatch
+### Optimization Settings Mismatch
 
 Optimization settings must match compilation configuration.
 
 ---
 
-# Wrong Source Code
+### Wrong Source Code
 
 The deployed bytecode must correspond exactly to the submitted source.
 
 ---
 
-# Missing Constructor Arguments
+### Missing Constructor Arguments
 
 Contracts with constructors may require encoded constructor parameters.
 
 ---
 
-# Example Workflow
+### Example Workflow
 
-## 1. Deploy Contract
+#### 1. Deploy Contract
 
 ```bash id="7o1rhz"
 forge script script/DeploySimpleStorage.s.sol \
@@ -3168,7 +3176,7 @@ forge script script/DeploySimpleStorage.s.sol \
 
 ---
 
-# 2. Copy Contract Address
+### 2. Copy Contract Address
 
 Example:
 
@@ -3178,7 +3186,7 @@ Example:
 
 ---
 
-# 3. Open Etherscan
+### 3. Open Etherscan
 
 - [Sepolia Etherscan](https://sepolia.etherscan.io?utm_source=chatgpt.com)
 - [Polygon Amoy Scan](https://amoy.polygonscan.com/?utm_source=chatgpt.com)
@@ -3186,7 +3194,7 @@ Example:
 
 ---
 
-# 4. Verify and Publish
+### 4. Verify and Publish
 
 Provide:
 
@@ -3197,7 +3205,7 @@ Provide:
 
 ---
 
-# 5. Interact with Contract
+### 5. Interact with Contract
 
 Use:
 
@@ -3208,7 +3216,7 @@ directly in the browser.
 
 ---
 
-# Key Takeaways
+### Key Takeaways
 
 - Verification publishes the Solidity source code
 - Etherscan compares source code against deployed bytecode
@@ -3219,7 +3227,7 @@ directly in the browser.
 
 ---
 
-## After Verification
+#### After Verification
 
 Once verified, the contract page on Etherscan gains two new tabs:
 
@@ -3236,11 +3244,11 @@ This is the manual approach. Future lessons will cover how to verify programmati
 
 ---
 
-# ----------------------------
+### ----------------------------
 
-# Foundry zkSync
+### Foundry zkSync
 
-## Introduction
+#### Introduction
 
 zkSync is a Layer 2 scaling solution for Ethereum that uses:
 
@@ -3258,7 +3266,7 @@ Because of this, standard Foundry output is not fully compatible with zkSync.
 
 ---
 
-# Why zkSync Requires a Special Foundry Version
+### Why zkSync Requires a Special Foundry Version
 
 Standard Foundry compiles contracts for:
 
@@ -3277,7 +3285,7 @@ As a result:
 
 ---
 
-# Foundry zkSync
+### Foundry zkSync
 
 ```text id="v2q9gn"
 foundry-zksync
@@ -3299,7 +3307,7 @@ with zkSync-specific functionality.
 
 ---
 
-# Important Warning
+### Important Warning
 
 ⚠️ Installing `foundry-zksync` overrides standard Foundry binaries.
 
@@ -3316,7 +3324,7 @@ After installation:
 
 ---
 
-# zkSync Workflow Overview
+### zkSync Workflow Overview
 
 Typical workflow:
 
@@ -3327,9 +3335,9 @@ Typical workflow:
 
 ---
 
-# Installation Steps
+### Installation Steps
 
-## 1. Clone the Repository
+#### 1. Clone the Repository
 
 Clone the zkSync Foundry repository into a separate directory:
 
@@ -3355,7 +3363,7 @@ A Unix-like environment is required.
 
 ---
 
-# 4. Verify Installation
+### 4. Verify Installation
 
 Check the installed version:
 
@@ -3369,9 +3377,9 @@ A different version output indicates:
 
 ---
 
-# Switching Between Foundry Versions
+### Switching Between Foundry Versions
 
-## Enable zkSync Foundry
+#### Enable zkSync Foundry
 
 ```bash id="d5y7nt"
 foundryup-zksync
@@ -3384,7 +3392,7 @@ This switches the active binaries to:
 
 ---
 
-# Restore Vanilla Foundry
+### Restore Vanilla Foundry
 
 ```bash id="e9g4pw"
 foundryup
@@ -3396,7 +3404,7 @@ This restores:
 - default EVM workflows
 - vanilla `forge` and `cast`
 
-## Toggling Between Versions
+#### Toggling Between Versions
 
 | Command            | Effect                                    |
 | ------------------ | ----------------------------------------- |
@@ -3405,7 +3413,7 @@ This restores:
 
 ---
 
-# Compiling for zkSync
+### Compiling for zkSync
 
 To compile Solidity contracts for zkSync:
 
@@ -3421,7 +3429,7 @@ The `--zksync` flag:
 
 ---
 
-# Why Compilation Differs
+### Why Compilation Differs
 
 Even though Solidity source code looks the same:
 
@@ -3451,7 +3459,7 @@ This happens because zkSync:
 
 ---
 
-# The `/out` Folder Difference
+### The `/out` Folder Difference
 
 Standard Foundry generates:
 
@@ -3468,9 +3476,9 @@ Therefore:
 
 ---
 
-# Recommended Workflow
+### Recommended Workflow
 
-## Ethereum Development
+#### Ethereum Development
 
 Use:
 
@@ -3480,7 +3488,7 @@ foundryup
 
 ---
 
-# zkSync Development
+### zkSync Development
 
 Use:
 
@@ -3490,7 +3498,7 @@ foundryup-zksync
 
 ---
 
-# Compile for zkSync
+### Compile for zkSync
 
 ```bash id="r7f4zn"
 forge build --zksync
@@ -3498,7 +3506,7 @@ forge build --zksync
 
 ---
 
-# Verify Version
+### Verify Version
 
 ```bash id="7p5mcv"
 forge --version
@@ -3506,9 +3514,9 @@ forge --version
 
 ---
 
-# Important Notes
+### Important Notes
 
-## Toolchain Separation
+#### Toolchain Separation
 
 Keep:
 
@@ -3519,7 +3527,7 @@ logically separated.
 
 ---
 
-# Compatibility
+### Compatibility
 
 Not every:
 
@@ -3534,7 +3542,7 @@ works identically between:
 
 ---
 
-# zkSync Benefits
+### zkSync Benefits
 
 zkSync provides:
 
@@ -3545,7 +3553,7 @@ zkSync provides:
 
 ---
 
-# Key Takeaways
+### Key Takeaways
 
 - zkSync uses different low-level VM behavior than Ethereum
 - Standard Foundry is not fully compatible with zkSync
@@ -3557,7 +3565,7 @@ zkSync provides:
 
 ---
 
-# References
+### References
 
 - [Foundry Book](https://book.getfoundry.sh/?utm_source=chatgpt.com)
 - [Foundry zkSync GitHub Repository](https://github.com/matter-labs/foundry-zksync?utm_source=chatgpt.com)
@@ -3578,11 +3586,11 @@ zkSync provides:
 
 ---
 
-# ----------------------------
+### ----------------------------
 
-# Compiling with zkSync
+### Compiling with zkSync
 
-## Introduction
+#### Introduction
 
 When using standard Foundry with Ethereum, running:
 
@@ -3614,7 +3622,7 @@ These outputs are designed for:
 
 ---
 
-# zkSync Compilation
+### zkSync Compilation
 
 ZKsync uses:
 
@@ -3633,7 +3641,7 @@ forge build --zksync
 
 ---
 
-# The `/zkout` Folder
+### The `/zkout` Folder
 
 Running:
 
@@ -3661,7 +3669,7 @@ Unlike `/out`, these artifacts are specifically generated for:
 
 ---
 
-# Difference Between `/out` and `/zkout`
+### Difference Between `/out` and `/zkout`
 
 | Folder   | Target VM     | Generated By           |
 | -------- | ------------- | ---------------------- |
@@ -3670,7 +3678,7 @@ Unlike `/out`, these artifacts are specifically generated for:
 
 ---
 
-# Standard Ethereum Compilation
+### Standard Ethereum Compilation
 
 Use:
 
@@ -3686,7 +3694,7 @@ Generates:
 
 ---
 
-# zkSync Compilation
+### zkSync Compilation
 
 Use:
 
@@ -3702,7 +3710,7 @@ Generates:
 
 ---
 
-# Switching Back to Vanilla Foundry
+### Switching Back to Vanilla Foundry
 
 If you previously installed zkSync Foundry and want to return to standard Ethereum workflows:
 
@@ -3718,9 +3726,9 @@ This restores:
 
 ---
 
-# Recommended Workflow
+### Recommended Workflow
 
-## Ethereum / EVM Development
+#### Ethereum / EVM Development
 
 ```bash id="9m5zqx"
 foundryup
@@ -3733,7 +3741,7 @@ Output:
 
 ---
 
-# zkSync Development
+### zkSync Development
 
 ```bash id="5f3ytn"
 foundryup-zksync
@@ -3746,7 +3754,7 @@ Output:
 
 ---
 
-# Why Different Compilation Is Necessary
+### Why Different Compilation Is Necessary
 
 Even if Solidity code remains similar:
 
@@ -3771,9 +3779,9 @@ the generated bytecode differs because:
 
 ---
 
-# Important Notes
+### Important Notes
 
-## Toolchain Compatibility
+#### Toolchain Compatibility
 
 Artifacts generated for:
 
@@ -3787,7 +3795,7 @@ and vice versa.
 
 ---
 
-# Default Recommendation
+### Default Recommendation
 
 Unless explicitly working with zkSync:
 
@@ -3798,9 +3806,9 @@ This remains the default workflow for most Ethereum development.
 
 ---
 
-# Useful Commands
+### Useful Commands
 
-## Standard Compilation
+#### Standard Compilation
 
 ```bash id="m3k8px"
 forge build
@@ -3808,7 +3816,7 @@ forge build
 
 ---
 
-# zkSync Compilation
+### zkSync Compilation
 
 ```bash id="j9w4vr"
 forge build --zksync
@@ -3816,7 +3824,7 @@ forge build --zksync
 
 ---
 
-# Switch to zkSync Foundry
+### Switch to zkSync Foundry
 
 ```bash id="f8t6yn"
 foundryup-zksync
@@ -3824,7 +3832,7 @@ foundryup-zksync
 
 ---
 
-# Restore Vanilla Foundry
+### Restore Vanilla Foundry
 
 ```bash id="d6r2qs"
 foundryup
@@ -3832,7 +3840,7 @@ foundryup
 
 ---
 
-# Verify Foundry Version
+### Verify Foundry Version
 
 ```bash id="g2m5kt"
 forge --version
@@ -3840,7 +3848,7 @@ forge --version
 
 ---
 
-# Key Takeaways
+### Key Takeaways
 
 - `forge build` generates standard EVM artifacts in `/out`
 - `forge build --zksync` generates zkSync-compatible artifacts in `/zkout`
@@ -3851,7 +3859,7 @@ forge --version
 
 ---
 
-# References
+### References
 
 - [Foundry Book](https://book.getfoundry.sh/?utm_source=chatgpt.com)
 - [Foundry zkSync GitHub Repository](https://github.com/matter-labs/foundry-zksync?utm_source=chatgpt.com)
@@ -3867,11 +3875,11 @@ forge --version
 
 ---
 
-# ----------------------------
+### ----------------------------
 
-# Anvil zkSync Update - Anvil ZKsync — Local ZKsync Node
+### Anvil zkSync Update - Anvil ZKsync — Local ZKsync Node
 
-## Introduction
+#### Introduction
 
 zkSync now provides a simplified local development workflow through:
 
@@ -3894,7 +3902,7 @@ but specifically targets:
 
 ---
 
-# Why Use a Local zkSync Node?
+### Why Use a Local zkSync Node?
 
 Testing contracts only on Ethereum is not always sufficient because:
 
@@ -3910,7 +3918,7 @@ Running contracts locally on zkSync helps ensure:
 
 ---
 
-# Previous zkSync Local Setup
+### Previous zkSync Local Setup
 
 Older zkSync workflows often required:
 
@@ -3923,7 +3931,7 @@ The newer workflow simplifies everything significantly.
 
 ---
 
-# New Simplified Workflow
+### New Simplified Workflow
 
 With the latest `foundry-zksync` versions:
 
@@ -3933,7 +3941,7 @@ With the latest `foundry-zksync` versions:
 
 ---
 
-# Important Requirement
+### Important Requirement
 
 ⚠️ You must use an updated version of:
 
@@ -3949,7 +3957,7 @@ Older installations may not include:
 
 ---
 
-# Installing or Updating Foundry zkSync
+### Installing or Updating Foundry zkSync
 
 Install or reinstall using:
 
@@ -3966,7 +3974,7 @@ This installs:
 
 ---
 
-# Starting a Local zkSync Node
+### Starting a Local zkSync Node
 
 Run:
 
@@ -3978,11 +3986,11 @@ This launches a local zkSync development blockchain.
 
 ---
 
-# What `anvil-zksync` Provides
+### What `anvil-zksync` Provides
 
 Similar to standard Anvil, it includes:
 
-## Pre-Funded Accounts
+#### Pre-Funded Accounts
 
 Rich development accounts with:
 
@@ -3998,7 +4006,7 @@ Useful for:
 
 ---
 
-# RPC Endpoint
+### RPC Endpoint
 
 The node exposes an RPC URL such as:
 
@@ -4016,7 +4024,7 @@ This RPC URL is used for:
 
 ---
 
-# Gas Information
+### Gas Information
 
 `anvil-zksync` also displays:
 
@@ -4029,9 +4037,9 @@ This helps simulate realistic zkSync conditions.
 
 ---
 
-# Typical zkSync Workflow
+### Typical zkSync Workflow
 
-## 1. Install zkSync Foundry
+#### 1. Install zkSync Foundry
 
 ```bash id="g4m9xc"
 curl -L https://raw.githubusercontent.com/matter-labs/foundry-zksync/main/install-foundry-zksync | bash
@@ -4039,7 +4047,7 @@ curl -L https://raw.githubusercontent.com/matter-labs/foundry-zksync/main/instal
 
 ---
 
-# 2. Switch to zkSync Foundry
+### 2. Switch to zkSync Foundry
 
 ```bash id="t5x8fr"
 foundryup-zksync
@@ -4047,7 +4055,7 @@ foundryup-zksync
 
 ---
 
-# 3. Start Local zkSync Node
+### 3. Start Local zkSync Node
 
 ```bash id="n2w6pv"
 anvil-zksync
@@ -4055,7 +4063,7 @@ anvil-zksync
 
 ---
 
-# 4. Compile Contracts for zkSync
+### 4. Compile Contracts for zkSync
 
 ```bash id="p9r3mv"
 forge build --zksync
@@ -4063,7 +4071,7 @@ forge build --zksync
 
 ---
 
-# 5. Deploy to Local zkSync Node
+### 5. Deploy to Local zkSync Node
 
 Example:
 
@@ -4075,7 +4083,7 @@ forge script script/DeploySimpleStorage.s.sol \
 
 ---
 
-# Difference Between Anvil and Anvil zkSync
+### Difference Between Anvil and Anvil zkSync
 
 | Feature       | Anvil         | anvil-zksync           |
 | ------------- | ------------- | ---------------------- |
@@ -4087,9 +4095,9 @@ forge script script/DeploySimpleStorage.s.sol \
 
 ---
 
-# Benefits of `anvil-zksync`
+### Benefits of `anvil-zksync`
 
-## Simpler Setup
+#### Simpler Setup
 
 No need for:
 
@@ -4099,7 +4107,7 @@ No need for:
 
 ---
 
-# Faster Development
+### Faster Development
 
 Enables:
 
@@ -4109,7 +4117,7 @@ Enables:
 
 ---
 
-# Better zkSync Compatibility
+### Better zkSync Compatibility
 
 Allows testing directly against:
 
@@ -4119,9 +4127,9 @@ Allows testing directly against:
 
 ---
 
-# Useful Commands
+### Useful Commands
 
-## Install/Update zkSync Foundry
+#### Install/Update zkSync Foundry
 
 ```bash id="k8m5yn"
 curl -L https://raw.githubusercontent.com/matter-labs/foundry-zksync/main/install-foundry-zksync | bash
@@ -4129,7 +4137,7 @@ curl -L https://raw.githubusercontent.com/matter-labs/foundry-zksync/main/instal
 
 ---
 
-# Enable zkSync Foundry
+### Enable zkSync Foundry
 
 ```bash id="u7f3zt"
 foundryup-zksync
@@ -4137,7 +4145,7 @@ foundryup-zksync
 
 ---
 
-# Start Local zkSync Node
+### Start Local zkSync Node
 
 ```bash id="s4q9mh"
 anvil-zksync
@@ -4145,7 +4153,7 @@ anvil-zksync
 
 ---
 
-# Compile for zkSync
+### Compile for zkSync
 
 ```bash id="a5n8wr"
 forge build --zksync
@@ -4153,7 +4161,7 @@ forge build --zksync
 
 ---
 
-# Restore Vanilla Foundry
+### Restore Vanilla Foundry
 
 ```bash id="f3t6pk"
 foundryup
@@ -4161,7 +4169,7 @@ foundryup
 
 ---
 
-# Key Takeaways
+### Key Takeaways
 
 - `anvil-zksync` is the local zkSync development node
 - Modern zkSync workflows are much simpler than before
@@ -4173,7 +4181,7 @@ foundryup
 
 ---
 
-# References
+### References
 
 - [Foundry zkSync GitHub Repository](https://github.com/matter-labs/foundry-zksync?utm_source=chatgpt.com)
 - [zkSync Official Website](https://zksync.io?utm_source=chatgpt.com)
@@ -4193,11 +4201,11 @@ foundryup
 
 ---
 
-# ----------------------------
+### ----------------------------
 
-# zkSync Local Node with Docker
+### zkSync Local Node with Docker
 
-## Introduction
+#### Introduction
 
 Docker supports local development environments that allow developers to:
 
@@ -4215,7 +4223,7 @@ If configuring the tooling becomes difficult, you can continue using:
 
 ---
 
-# Why Use a Local zkSync Node?
+### Why Use a Local zkSync Node?
 
 A local zkSync node helps developers:
 
@@ -4231,7 +4239,7 @@ Since zkSync differs internally from Ethereum:
 
 ---
 
-# Required Tools
+### Required Tools
 
 To run a local zkSync environment, install:
 
@@ -4244,13 +4252,13 @@ To run a local zkSync environment, install:
 
 ---
 
-# Docker Setup
+### Docker Setup
 
-## Start Docker
+#### Start Docker
 
 Docker must be running before starting the zkSync node.
 
-### macOS
+##### macOS
 
 Start:
 
@@ -4289,7 +4297,7 @@ osascript -e 'quit app "Docker"'
 
 ---
 
-# Verify Docker Installation
+### Verify Docker Installation
 
 Check Docker version:
 
@@ -4305,7 +4313,7 @@ docker ps
 
 ---
 
-# Install Node.js and npm
+### Install Node.js and npm
 
 Install:
 
@@ -4324,7 +4332,7 @@ npm --version
 
 ---
 
-# Install zkSync CLI
+### Install zkSync CLI
 
 Install via [npm](https://www.npmjs.com/package/zksync-cli) and configure:
 
@@ -4341,7 +4349,7 @@ This command:
 
 ---
 
-# Recommended Configuration
+### Recommended Configuration
 
 Choose:
 
@@ -4362,7 +4370,7 @@ can be skipped initially.
 
 ---
 
-# Start Local zkSync Node
+### Start Local zkSync Node
 
 Run:
 
@@ -4378,7 +4386,7 @@ This command:
 
 ---
 
-# Verify the Node Is Running
+### Verify the Node Is Running
 
 Check active Docker containers:
 
@@ -4392,7 +4400,7 @@ If Docker is not running:
 
 ---
 
-# Important Docker Note
+### Important Docker Note
 
 ⚠️ Before running:
 
@@ -4412,7 +4420,7 @@ ensure:
 
 ---
 
-## Deploying to the Local ZKsync Node
+#### Deploying to the Local ZKsync Node
 
 Deployment is similar to Ethereum deployment workflows.
 
@@ -4423,7 +4431,7 @@ However:
 
 ---
 
-# Recommended Deployment Command
+### Recommended Deployment Command
 
 Use:
 
@@ -4447,9 +4455,9 @@ forge create <ContractName> \
 
 ---
 
-# Important zkSync Flags
+### Important zkSync Flags
 
-## `--zksync`
+#### `--zksync`
 
 Enables:
 
@@ -4459,7 +4467,7 @@ Enables:
 
 ---
 
-# `--legacy`
+### `--legacy`
 
 Required for:
 
@@ -4468,7 +4476,7 @@ Required for:
 
 ---
 
-# Why `forge create` Instead of `forge script`?
+### Why `forge create` Instead of `forge script`?
 
 At the time of this lesson:
 
@@ -4481,9 +4489,9 @@ Therefore:
 
 ---
 
-# Example Deployment Flow
+### Example Deployment Flow
 
-## 1. Start zkSync Local Node
+#### 1. Start zkSync Local Node
 
 ```bash id="p6v4mx"
 npx zksync-cli dev start
@@ -4491,7 +4499,7 @@ npx zksync-cli dev start
 
 ---
 
-# 2. Compile for zkSync
+### 2. Compile for zkSync
 
 ```bash id="f5z2tr"
 forge build --zksync
@@ -4499,7 +4507,7 @@ forge build --zksync
 
 ---
 
-# 3. Deploy Contract
+### 3. Deploy Contract
 
 ```bash id="m8x7pk"
 forge create src/SimpleStorage.sol:SimpleStorage \
@@ -4513,7 +4521,7 @@ forge create src/SimpleStorage.sol:SimpleStorage \
 
 ---
 
-# zkSync vs Ethereum Local Development
+### zkSync vs Ethereum Local Development
 
 | Feature       | Ethereum       | zkSync                           |
 | ------------- | -------------- | -------------------------------- |
@@ -4525,9 +4533,9 @@ forge create src/SimpleStorage.sol:SimpleStorage \
 
 ---
 
-# Benefits of Local zkSync Testing
+### Benefits of Local zkSync Testing
 
-## Faster Iteration
+#### Faster Iteration
 
 Developers can:
 
@@ -4537,7 +4545,7 @@ Developers can:
 
 ---
 
-# Realistic zkSync Environment
+### Realistic zkSync Environment
 
 Simulates:
 
@@ -4547,7 +4555,7 @@ Simulates:
 
 ---
 
-# Safer Development
+### Safer Development
 
 Catch issues before:
 
@@ -4556,9 +4564,9 @@ Catch issues before:
 
 ---
 
-# Common Commands
+### Common Commands
 
-## Configure zkSync Environment
+#### Configure zkSync Environment
 
 ```bash id="t4k8mw"
 npx zksync-cli dev config
@@ -4566,7 +4574,7 @@ npx zksync-cli dev config
 
 ---
 
-# Start zkSync Node
+### Start zkSync Node
 
 ```bash id="d9v2rx"
 npx zksync-cli dev start
@@ -4574,7 +4582,7 @@ npx zksync-cli dev start
 
 ---
 
-# Verify Docker Containers
+### Verify Docker Containers
 
 ```bash id="w2m6qz"
 docker ps
@@ -4582,7 +4590,7 @@ docker ps
 
 ---
 
-# Compile for zkSync
+### Compile for zkSync
 
 ```bash id="z5p7tn"
 forge build --zksync
@@ -4590,7 +4598,7 @@ forge build --zksync
 
 ---
 
-# Deploy to zkSync
+### Deploy to zkSync
 
 ```bash id="c8r4my"
 forge create \
@@ -4600,7 +4608,7 @@ forge create \
 
 ---
 
-# Key Takeaways
+### Key Takeaways
 
 - zkSync local development requires extra tooling
 - Docker powers the local zkSync node
@@ -4612,7 +4620,7 @@ forge create \
 
 ---
 
-# References
+### References
 
 - [zkSync Official Website](https://zksync.io?utm_source=chatgpt.com)
 - [zkSync Documentation](https://docs.zksync.io?utm_source=chatgpt.com)
@@ -4633,11 +4641,11 @@ forge create \
 
 ---
 
-# ----------------------------
+### ----------------------------
 
-# Transaction Types: EVM vs ZKsync
+### Transaction Types: EVM vs ZKsync
 
-## Introduction
+#### Introduction
 
 Both the Ethereum Virtual Machine (EVM) and ZkSync support multiple transaction types.
 
@@ -4656,7 +4664,7 @@ Understanding transaction types is important because:
 
 ---
 
-# The `/broadcast` Folder
+### The `/broadcast` Folder
 
 When deploying, Foundry creates a `/broadcast` folder organized by chain ID:
 
@@ -4689,7 +4697,7 @@ This folder stores:
 
 ---
 
-# Chain-Specific Subfolders
+### Chain-Specific Subfolders
 
 Inside `/broadcast`, deployments are separated by:
 
@@ -4715,7 +4723,7 @@ Each subfolder contains:
 
 ---
 
-# `run-latest.json`
+### `run-latest.json`
 
 Inside each deployment folder you will typically find:
 
@@ -4732,9 +4740,9 @@ This file contains:
 
 ---
 
-# Example Transaction Types
+### Example Transaction Types
 
-## Anvil / EVM Deployment
+#### Anvil / EVM Deployment
 
 Typical type:
 
@@ -4744,7 +4752,7 @@ Typical type:
 
 ---
 
-# zkSync Deployment
+### zkSync Deployment
 
 Typical type:
 
@@ -4752,7 +4760,7 @@ Typical type:
 0x0
 ```
 
-# Default EVM Transaction Type
+### Default EVM Transaction Type
 
 Modern Ethereum deployments default to:
 
@@ -4768,7 +4776,7 @@ This corresponds to:
 
 ---
 
-# Legacy Transactions
+### Legacy Transactions
 
 Using:
 
@@ -4787,10 +4795,10 @@ which corresponds to:
 - legacy Ethereum transactions
 
 ```bash
-# EVM default → type 0x2
+### EVM default → type 0x2
 forge create SimpleStorage --rpc-url $RPC_URL --private-key $PRIVATE_KEY
 
-# With --legacy → type 0x0
+### With --legacy → type 0x0
 forge create SimpleStorage --rpc-url $RPC_URL --private-key $PRIVATE_KEY --legacy
 ```
 
@@ -4800,7 +4808,7 @@ ZKsync requires `--legacy` when using `forge create` to enforce type `0x0` compa
 
 ---
 
-# Why `--legacy` Matters
+### Why `--legacy` Matters
 
 zkSync deployments often require:
 
@@ -4816,7 +4824,7 @@ because:
 
 ---
 
-# Ethereum Transaction Evolution
+### Ethereum Transaction Evolution
 
 Originally, Ethereum only supported:
 
@@ -4830,7 +4838,7 @@ Over time, new transaction types were introduced through EIPs.
 
 ---
 
-# Transaction Type Overview
+### Transaction Type Overview
 
 | Type   | Description                 |
 | ------ | --------------------------- |
@@ -4848,7 +4856,7 @@ Over time, new transaction types were introduced through EIPs.
 
 ---
 
-# Type `0x0` — Legacy Transactions
+### Type `0x0` — Legacy Transactions
 
 Original Ethereum transaction format.
 
@@ -4871,7 +4879,7 @@ forge create --legacy
 
 ---
 
-# Type `0x1` — Access List Transactions
+### Type `0x1` — Access List Transactions
 
 Introduced through:
 
@@ -4889,7 +4897,7 @@ Benefits:
 
 ---
 
-# Type `0x2` — EIP-1559 Transactions
+### Type `0x2` — EIP-1559 Transactions
 
 Introduced through:
 
@@ -4909,7 +4917,7 @@ Modern Ethereum transactions typically use:
 
 ---
 
-# zkSync Transaction Type `0x71`
+### zkSync Transaction Type `0x71`
 
 zkSync introduces:
 
@@ -4925,7 +4933,7 @@ This transaction type supports advanced zkSync functionality such as:
 
 ---
 
-# Account Abstraction
+### Account Abstraction
 
 Account abstraction enables:
 
@@ -4938,7 +4946,7 @@ zkSync integrates this more deeply than standard Ethereum.
 
 ---
 
-# Viewing Transaction Types
+### Viewing Transaction Types
 
 Inspect deployment transaction types inside:
 
@@ -4964,7 +4972,7 @@ or:
 
 ---
 
-# EVM vs zkSync Transaction Behavior
+### EVM vs zkSync Transaction Behavior
 
 | Feature             | Ethereum EVM | zkSync         |
 | ------------------- | ------------ | -------------- |
@@ -4976,7 +4984,7 @@ or:
 
 ---
 
-# zkSync Deployment Recommendation
+### zkSync Deployment Recommendation
 
 For zkSync deployments:
 
@@ -4988,7 +4996,7 @@ is commonly recommended for compatibility.
 
 ---
 
-# Important Note About `forge script`
+### Important Note About `forge script`
 
 ⚠️ `forge script` may work in some zkSync scenarios, but support is inconsistent.
 
@@ -4999,9 +5007,9 @@ For reliability:
 
 ---
 
-# Example Commands
+### Example Commands
 
-## Standard EVM Deployment
+#### Standard EVM Deployment
 
 ```bash id="t4n8wx"
 forge create src/SimpleStorage.sol:SimpleStorage
@@ -5013,7 +5021,7 @@ Uses:
 
 ---
 
-# Legacy Deployment
+### Legacy Deployment
 
 ```bash id="c7m3vz"
 forge create src/SimpleStorage.sol:SimpleStorage --legacy
@@ -5025,7 +5033,7 @@ Uses:
 
 ---
 
-# zkSync Deployment
+### zkSync Deployment
 
 ```bash id="u8p4mr"
 forge create \
@@ -5035,7 +5043,7 @@ forge create \
 
 ---
 
-# Checking Broadcast Transactions
+### Checking Broadcast Transactions
 
 Open:
 
@@ -5052,7 +5060,7 @@ to inspect:
 
 ---
 
-# Key Takeaways
+### Key Takeaways
 
 - Ethereum and zkSync support multiple transaction types
 - Modern Ethereum defaults to type `0x2` (EIP-1559)
@@ -5065,7 +5073,7 @@ to inspect:
 
 ---
 
-# References
+### References
 
 - [zkSync Documentation — Transaction Types](https://docs.zksync.io/zksync-protocol/rollup/transaction-lifecycle/transaction-types?utm_source=chatgpt.com)
 - [EIP-1559 Specification](https://eips.ethereum.org/EIPS/eip-1559?utm_source=chatgpt.com)
@@ -5086,11 +5094,11 @@ to inspect:
 
 ---
 
-# ----------------------------
+### ----------------------------
 
-# Why Deploy to Layer 2?
+### Why Deploy to Layer 2?
 
-## Introduction
+#### Introduction
 
 In previous lessons, we:
 
@@ -5117,11 +5125,11 @@ instead of directly to Ethereum Layer 1 (L1).
 
 ---
 
-# Why Developers Prefer Layer 2
+### Why Developers Prefer Layer 2
 
 The primary reason is:
 
-## Cost
+#### Cost
 
 Ethereum mainnet transactions can become:
 
@@ -5137,7 +5145,7 @@ This includes:
 
 ---
 
-# Gas Usage
+### Gas Usage
 
 Every blockchain transaction consumes:
 
@@ -5162,7 +5170,7 @@ Deploying even a minimal contract like `SimpleStorage` on Ethereum mainnet is ex
 
 ```bash
 cast --to-base 0x5747A dec
-# → 357,498 gas
+### → 357,498 gas
 ```
 
 Then apply the formula using current gas prices from [Etherscan](https://etherscan.io):
@@ -5171,7 +5179,7 @@ into a human-readable decimal number.
 
 ---
 
-# Ethereum Deployment Cost Formula
+### Ethereum Deployment Cost Formula
 
 Deployment cost is calculated as:
 
@@ -5186,7 +5194,7 @@ Where:
 
 ---
 
-# Example Deployment Cost
+### Example Deployment Cost
 
 A simple `SimpleStorage` deployment used:
 
@@ -5206,7 +5214,7 @@ Approximate cost:
 
 ---
 
-# Why This Matters
+### Why This Matters
 
 Even tiny contracts can cost:
 
@@ -5228,7 +5236,7 @@ to deploy on Ethereum L1.
 
 ---
 
-# The Role of Layer 2 Solutions
+### The Role of Layer 2 Solutions
 
 Layer 2 networks aim to:
 
@@ -5245,7 +5253,7 @@ Examples include:
 
 ---
 
-# zkSync Advantages
+### zkSync Advantages
 
 ZKsync provides:
 
@@ -5262,11 +5270,11 @@ This allows developers to:
 
 ---
 
-## Why Layer 2?
+#### Why Layer 2?
 
 Layer 2 solutions like ZKsync offer the same security guarantees as Ethereum but at a fraction of the cost. Compare current transaction costs across chains at [L2Fees.info](https://l2fees.info/).
 
-# Ethereum vs Layer 2 Costs
+### Ethereum vs Layer 2 Costs
 
 | Network          | Typical Cost        |
 | ---------------- | ------------------- |
@@ -5276,7 +5284,7 @@ Layer 2 solutions like ZKsync offer the same security guarantees as Ethereum but
 
 ---
 
-# Deploying to zkSync Sepolia
+### Deploying to zkSync Sepolia
 
 Deployment to:
 
@@ -5287,7 +5295,7 @@ is very similar.
 
 ---
 
-# Getting a zkSync RPC URL
+### Getting a zkSync RPC URL
 
 You can create a zkSync Sepolia RPC endpoint using:
 
@@ -5301,7 +5309,7 @@ Steps:
 
 ---
 
-# Environment Configuration
+### Environment Configuration
 
 Example `.env` entry:
 
@@ -5311,7 +5319,7 @@ ZKSYNC_RPC_URL=https://zksync-sepolia.g.alchemy.com/v2/YOUR_API_KEY
 
 ---
 
-# Example Deployment Command
+### Example Deployment Command
 
 ```bash id="n2x8kt"
 forge create \
@@ -5322,7 +5330,7 @@ forge create \
 
 ---
 
-# Estimating Costs Before Mainnet
+### Estimating Costs Before Mainnet
 
 A useful workflow:
 
@@ -5339,7 +5347,7 @@ This helps developers:
 
 ---
 
-# Comparing Layer 2 Fees
+### Comparing Layer 2 Fees
 
 Useful resource:
 
@@ -5355,7 +5363,7 @@ This website compares:
 
 ---
 
-# Why L2 Adoption Is Growing
+### Why L2 Adoption Is Growing
 
 Layer 2 networks are becoming dominant because they provide:
 
@@ -5372,9 +5380,9 @@ Most modern dApps now:
 
 ---
 
-# Useful Commands
+### Useful Commands
 
-## View Gas Usage
+#### View Gas Usage
 
 Inspect:
 
@@ -5384,7 +5392,7 @@ Inspect:
 
 ---
 
-# Convert Hex to Decimal
+### Convert Hex to Decimal
 
 ```bash id="h4m7tz"
 cast --to-base 0x5747A dec
@@ -5392,7 +5400,7 @@ cast --to-base 0x5747A dec
 
 ---
 
-# Deploy to zkSync
+### Deploy to zkSync
 
 ```bash id="s8x5pk"
 forge create \
@@ -5402,7 +5410,7 @@ forge create \
 
 ---
 
-# Example `.env`
+### Example `.env`
 
 ```bash id="q9v2rn"
 ZKSYNC_RPC_URL=https://zksync-sepolia.g.alchemy.com/v2/API_KEY
@@ -5410,7 +5418,7 @@ ZKSYNC_RPC_URL=https://zksync-sepolia.g.alchemy.com/v2/API_KEY
 
 ---
 
-# Key Takeaways
+### Key Takeaways
 
 - Ethereum L1 deployments can be very expensive
 - Gas cost depends on gas usage and gas price
@@ -5423,7 +5431,7 @@ ZKSYNC_RPC_URL=https://zksync-sepolia.g.alchemy.com/v2/API_KEY
 
 ---
 
-# References
+### References
 
 - [zkSync Official Website](https://zksync.io?utm_source=chatgpt.com)
 - [zkSync Documentation](https://docs.zksync.io?utm_source=chatgpt.com)
@@ -5445,7 +5453,7 @@ ZKSYNC_RPC_URL=https://zksync-sepolia.g.alchemy.com/v2/API_KEY
 
 ---
 
-# ----------------------------
+### ----------------------------
 
 ---
 
@@ -5455,7 +5463,7 @@ ZKSYNC_RPC_URL=https://zksync-sepolia.g.alchemy.com/v2/API_KEY
 
 ---
 
-# ----------------------------
+### ----------------------------
 
 ---
 
@@ -5465,7 +5473,7 @@ ZKSYNC_RPC_URL=https://zksync-sepolia.g.alchemy.com/v2/API_KEY
 
 ---
 
-# ----------------------------
+### ----------------------------
 
 ---
 
@@ -5475,7 +5483,7 @@ ZKSYNC_RPC_URL=https://zksync-sepolia.g.alchemy.com/v2/API_KEY
 
 ---
 
-# ----------------------------
+### ----------------------------
 
 ---
 
@@ -5485,4 +5493,4 @@ ZKSYNC_RPC_URL=https://zksync-sepolia.g.alchemy.com/v2/API_KEY
 
 ---
 
-# ----------------------------
+### ----------------------------
